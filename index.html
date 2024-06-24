@@ -23,6 +23,49 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
+    <main class="main-container">
+      <h1>Contact Us</h1>
+      <form>
+        <div class="form-block">
+          <div class="block-item block-item--pad-bottom">
+            <label for="firt-name">First Name <span>*</span></label>
+            <input type="text" name="first-name" id="firt-name" required>
+          </div>
+          <div class="block-item">
+            <label for="last-name">Last Name <span>*</span></label>
+            <input type="text" name="last-name" id="last-name" required>
+          </div>
+        </div>
+        <div class="form-block">
+          <div class="block-item">
+            <label for="email">Email Address <span>*</span></label>
+            <input type="email" name="email" id="email" required>
+          </div>
+        </div>
+        <div class="form-block">
+          <label id="label-query">Query Type <span>*</span></label>
+          <div class="block-items">
+            <div class="item-option">
+              <input type="radio" name="query-type" id="query-type1" value="general-enquiry" required/>
+              <label for="query-type1">General Enquiry</label>
+            </div>
+            <div class="item-option">
+              <input type="radio" name="query-type" id="query-type2" value="support-request" required/>
+              <label for="query-type2">Support Request</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-block form-block--message">
+          <label for="message">Message <span>*</span></label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="check-terms">
+          <input type="checkbox" name="terms" id="check" required></input>
+          <label for="check">I consent to being contacted by the team <span>*</span></label>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
     <!-- js -->
     <script src="js/script.js" type="text/javascript" defer></script>
   </body>
