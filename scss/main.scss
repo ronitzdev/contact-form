@@ -1,0 +1,152 @@
+//Primary
+$green-200: hsl(148, 38%, 91%); //lighter
+$green-600: hsl(169, 82%, 27%); //medium
+$red: hsl(0, 66%, 54%);
+//Neutral
+$white: hsl(0, 0%, 100%);
+$grey-500: hsl(186, 15%, 59%); //medium
+$grey-900: hsl(187, 24%, 22%); //darker
+//Weights
+$weight1: 400;
+$weight2: 700;
+//reset
+* {
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  min-height: 100dvh;
+}
+//all label
+label {
+  font-size: 1.6rem;
+  color: $grey-900;
+  span {
+    color: $green-600;
+    margin-left: 5px;
+  }
+}
+//body
+body {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: $green-200;
+  display: flex;
+  justify-content: center;
+  min-width: 320px;
+}
+//card
+.main-container {
+  width: 100%;
+  min-width: 345px;
+  max-width: 425px;
+  padding: 20px 25px;
+  margin: 30px 15px;
+  background-color: $white;
+  border-radius: 15px;
+  h1 {
+    font-size: 3rem;
+    margin-top: 10px;
+    padding-bottom: 25px;
+  }
+}
+//form
+.form-block {
+  padding-bottom: 25px;
+  .block-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    input {
+      padding: 15px 20px;
+      border-radius: 7px;
+      border: none;
+      border: 1px solid $grey-900;
+      font-size: 1.6rem;
+    }
+  }
+  .block-item--pad-bottom {
+    padding-bottom: 25px;
+  }
+  #label--pad-bottom {
+    padding-bottom: 10px;
+  }
+  //options container
+  .block-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    //label
+    .option {
+      border: 1px solid $grey-900;
+      border-radius: 7px;
+      padding: 15px 20px;
+      input {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+//effect select
+form {
+  & .option {
+    padding: 10px 20px;
+    &:has([type="radio"]:checked) {
+      border-color: $green-600;
+      background-color: $green-200;
+    }
+  }
+}
+//message
+.form-block--message {
+  display: flex;
+  flex-direction: column;
+  textarea {
+    padding: 15px 20px;
+    margin-top: 10px;
+    height: 200px;
+    border-radius: 7px;
+    border: none;
+    border: 1px solid $grey-900;
+    font-size: 1.6rem;
+  }
+}
+//terms
+.check-terms {
+  display: flex;
+  align-items: center;
+  label {
+    color: $grey-900;
+    margin-left: 10px;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}
+// button
+button {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  margin-top: 20px;
+  //border: 1px solid $green-600;
+  border-radius: 7px;
+  background-color: $green-600;
+  color: $white;
+  font-size: 1.6rem;
+  border: none;
+}
+button:hover {
+  background-color: $grey-500;
+}
+//focus

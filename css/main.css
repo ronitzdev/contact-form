@@ -1,1 +1,135 @@
-/*# sourceMappingURL=main.css.map */
+* {
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  min-height: 100dvh;
+}
+
+label {
+  font-size: 1.6rem;
+  color: hsl(187, 24%, 22%);
+}
+label span {
+  color: hsl(169, 82%, 27%);
+  margin-left: 5px;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: hsl(148, 38%, 91%);
+  display: flex;
+  justify-content: center;
+  min-width: 320px;
+}
+
+.main-container {
+  width: 100%;
+  min-width: 345px;
+  max-width: 425px;
+  padding: 20px 25px;
+  margin: 30px 15px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 15px;
+}
+.main-container h1 {
+  font-size: 3rem;
+  margin-top: 10px;
+  padding-bottom: 25px;
+}
+
+.form-block {
+  padding-bottom: 25px;
+}
+.form-block .block-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-block .block-item input {
+  padding: 15px 20px;
+  border-radius: 7px;
+  border: none;
+  border: 1px solid hsl(187, 24%, 22%);
+  font-size: 1.6rem;
+}
+.form-block .block-item--pad-bottom {
+  padding-bottom: 25px;
+}
+.form-block #label--pad-bottom {
+  padding-bottom: 10px;
+}
+.form-block .block-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.form-block .block-items .option {
+  border: 1px solid hsl(187, 24%, 22%);
+  border-radius: 7px;
+  padding: 15px 20px;
+}
+.form-block .block-items .option input {
+  margin-right: 10px;
+}
+
+form .option {
+  padding: 10px 20px;
+}
+form .option:has([type=radio]:checked) {
+  border-color: hsl(169, 82%, 27%);
+  background-color: hsl(148, 38%, 91%);
+}
+
+.form-block--message {
+  display: flex;
+  flex-direction: column;
+}
+.form-block--message textarea {
+  padding: 15px 20px;
+  margin-top: 10px;
+  height: 200px;
+  border-radius: 7px;
+  border: none;
+  border: 1px solid hsl(187, 24%, 22%);
+  font-size: 1.6rem;
+}
+
+.check-terms {
+  display: flex;
+  align-items: center;
+}
+.check-terms label {
+  color: hsl(187, 24%, 22%);
+  margin-left: 10px;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  margin-top: 20px;
+  border-radius: 7px;
+  background-color: hsl(169, 82%, 27%);
+  color: hsl(0, 0%, 100%);
+  font-size: 1.6rem;
+  border: none;
+}
+
+button:hover {
+  background-color: hsl(186, 15%, 59%);
+}/*# sourceMappingURL=main.css.map */
