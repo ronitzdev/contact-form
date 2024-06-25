@@ -64,6 +64,10 @@ body {
   border: 1px solid hsl(187, 24%, 22%);
   font-size: 1.6rem;
 }
+.form-block .block-item input:focus {
+  border: 2px solid hsl(169, 82%, 27%);
+  outline: none;
+}
 .form-block .block-item--pad-bottom {
   padding-bottom: 25px;
 }
@@ -106,6 +110,10 @@ form .option:has([type=radio]:checked) {
   border: 1px solid hsl(187, 24%, 22%);
   font-size: 1.6rem;
 }
+.form-block--message textarea:focus {
+  border: 2px solid hsl(169, 82%, 27%);
+  outline: none;
+}
 
 .check-terms {
   display: flex;
@@ -116,6 +124,9 @@ form .option:has([type=radio]:checked) {
   margin-left: 10px;
   font-size: 1.8rem;
   cursor: pointer;
+}
+.check-terms input {
+  accent-color: hsl(169, 82%, 27%);
 }
 
 button {
@@ -132,4 +143,6 @@ button {
 
 button:hover {
   background-color: hsl(186, 15%, 59%);
+  border: 1px solid hsl(169, 82%, 27%);
+  color: hsl(187, 24%, 22%);
 }/*# sourceMappingURL=main.css.map */

@@ -74,6 +74,10 @@ body {
       border: 1px solid $grey-900;
       font-size: 1.6rem;
     }
+    input:focus {
+      border: 2px solid $green-600;
+      outline: none;
+    }
   }
   .block-item--pad-bottom {
     padding-bottom: 25px;
@@ -121,6 +125,10 @@ form {
     border: 1px solid $grey-900;
     font-size: 1.6rem;
   }
+  textarea:focus {
+    border: 2px solid $green-600;
+    outline: none;
+  }
 }
 //terms
 .check-terms {
@@ -131,6 +139,9 @@ form {
     margin-left: 10px;
     font-size: 1.8rem;
     cursor: pointer;
+  }
+  input {
+    accent-color: $green-600;
   }
 }
 // button
@@ -148,5 +159,6 @@ button {
 }
 button:hover {
   background-color: $grey-500;
+  border: 1px solid $green-600;
+  color: $grey-900;
 }
-//focus
