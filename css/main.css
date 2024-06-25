@@ -145,4 +145,35 @@ button:hover {
   background-color: hsl(186, 15%, 59%);
   border: 1px solid hsl(169, 82%, 27%);
   color: hsl(187, 24%, 22%);
+}
+
+@media screen and (min-width: 425px) {
+  .main-container {
+    max-width: 730px;
+  }
+  .form-block {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .form-block .block-item {
+    flex: 1;
+  }
+  .form-block:nth-child(3) {
+    flex-direction: column;
+  }
+  .form-block:nth-child(3) > .block-items {
+    flex-direction: row;
+  }
+  .form-block:nth-child(3) > .block-items label {
+    flex: 1;
+  }
+  .form-block--message {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+  }
+  form .check-terms label {
+    font-size: 2rem;
+  }
 }/*# sourceMappingURL=main.css.map */
