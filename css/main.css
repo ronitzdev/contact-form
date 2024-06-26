@@ -180,4 +180,39 @@ form #contador-caracteres {
   color: #666;
   font-size: 1.4rem;
   margin-top: 5px;
+}
+
+#formulario .label_valido {
+  color: hsl(169, 82%, 27%);
+  font-weight: bold;
+}
+
+#formulario .label_valido-option {
+  color: hsl(169, 82%, 27%);
+  font-weight: bold;
+  border: 2px solid hsl(169, 82%, 27%);
+}
+
+#formulario .input_valido {
+  border: 2px solid hsl(169, 82%, 27%);
+}
+
+#formulario .label_invalido {
+  color: hsl(0, 66%, 54%);
+  font-weight: bold;
+}
+
+#formulario .label_invalido-option {
+  color: hsl(0, 66%, 54%);
+  font-weight: bold;
+  border: 2px solid hsl(0, 66%, 54%);
+}
+
+#formulario .label_invalido .span {
+  color: hsl(0, 66%, 54%);
+  font-weight: bold;
+}
+
+#formulario .input_invalido {
+  border: 2px solid hsl(0, 66%, 54%);
 }/*# sourceMappingURL=main.css.map */

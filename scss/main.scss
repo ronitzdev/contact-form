@@ -201,3 +201,39 @@ form #contador-caracteres {
   font-size: 1.4rem;
   margin-top: 5px;
 }
+
+//VALIDACION CORRECTA
+//label
+#formulario .label_valido {
+  color: $green-600;
+  font-weight: bold;
+}
+#formulario .label_valido-option {
+  color: $green-600;
+  font-weight: bold;
+  border: 2px solid $green-600;
+}
+//input
+#formulario .input_valido {
+  border: 2px solid $green-600;
+}
+//VALIDACION INCORRECTA
+//label
+#formulario .label_invalido {
+  color: $red;
+  font-weight: bold;
+}
+#formulario .label_invalido-option {
+  color: $red;
+  font-weight: bold;
+  border: 2px solid $red;
+}
+//span
+#formulario .label_invalido .span {
+  color: $red;
+  font-weight: bold;
+}
+//input
+#formulario .input_invalido {
+  border: 2px solid $red;
+}
