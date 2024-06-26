@@ -28,18 +28,18 @@
       <form id="formulario" novalidate>
         <div class="form-block">
           <div class="block-item block-item--pad-bottom">
-            <label for="first-name">First Name <span>*</span></label>
-            <input type="text" name="first-name" id="first-name" required>
+            <label for="first-name" id="label_nombre">First Name <span>*</span></label>
+            <input type="text" id="input_nombre"  name="first-name" id="first-name" required>
           </div>
           <div class="block-item">
-            <label for="last-name">Last Name <span>*</span></label>
-            <input type="text" name="last-name" id="last-name" required>
+            <label for="last-name" id="label_apellido">Last Name <span>*</span></label>
+            <input type="text" id="input_apellido" name="last-name" id="last-name" required>
           </div>
         </div>
         <div class="form-block">
           <div class="block-item">
-            <label for="email">Email Address <span>*</span></label>
-            <input type="email" name="email" id="email" autocomplete="email" required>
+            <label for="email" id="label_correo">Email Address <span>*</span></label>
+            <input type="email" id="input_correo" name="email" id="email" autocomplete="email" required>
           </div>
         </div>
         <div class="form-block">
@@ -55,13 +55,13 @@
           </div>
         </div>
         <div class="form-block form-block--message">
-          <label for="message">Message <span>*</span></label>
+          <label for="message" id="label_mensaje">Message <span>*</span></label>
           <textarea id="message" name="message" required></textarea>
           <div id="contador-caracteres">0 / 1000 caracteres</div>
         </div>
         <div class="check-terms">
           <input type="checkbox" name="terms" id="check" required></input>
-          <label for="check">I consent to being contacted by the team <span>*</span></label>
+          <label for="check" id="label_terminos">I consent to being contacted by the team <span>*</span></label>
         </div>
         <button type="submit">Submit</button>
       </form>

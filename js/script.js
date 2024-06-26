@@ -37,18 +37,6 @@ const validarFormulario = (e) => {
       break;
     case "query-type":
       validarConsulta();
-
-      //VALIDA INPUTS TIPO RADIO Y CHECKBOX
-      /*
-      if (
-        e.target.value == "general-enquiry" ||
-        e.target.value == "support-request"
-      ) {
-        console.log(e.target.value);
-      } else {
-        console.log("no valido");
-      }
-        */
       break;
     case "message":
       validarCampo(expresiones.mensaje, e.target, "mensaje");
@@ -66,10 +54,14 @@ const validarConsulta = () => {
   // Verificar si alguno está seleccionado
   if (radio1.checked || radio2.checked) {
     campos.consulta = true;
+    //quitar lo incorrecto
+    //poner lo correcto
+    document.getElementById("label--pad-bottom").classList.add("label_valido");
     console.log("consulta correcta");
   } else {
     campos.consulta = false;
     console.log("consulta incorrecta");
+    //no se hace necesario quitar lo correcto, ya no se puede borrar seleccion
   }
 };
 //funcion que valida input, en caso de verdadero modificara campo especifico en objeto llamado campos.
@@ -77,47 +69,62 @@ const validarTerminos = () => {
   const terminos = document.getElementById("check");
   if (terminos.checked) {
     campos.terminos = true;
+    //quitar lo incorrecto
+    //poner lo correcto
+    document.getElementById("label_terminos").classList.add("label_valido");
     console.log("terminos correcto");
   } else {
     campos.terminos = false;
     console.log("terminos incorrecto");
+    //quitar lo correcto
+    document.getElementById("label_terminos").classList.remove("label_valido");
+    //poner lo incorrecto
+    document.getElementById("label_terminos").classList.add("label_invalido");
   }
 };
 
 //funcion que  valida campo interactuado
 const validarCampo = (expresion, input, campo) => {
   if (expresion.test(input.value)) {
-    //todo correcto
-    //elimina clase de incorrecto, quita borde rojo
-    //elimina clase de incorrecto, quita mensaje color rojo
-    //agrega clase de correcto, coloca borde verde
-    /*
-    document
-      .getElementById(`grupo__${campo}`)
-      .classList.remove("formulario__grupo-incorrecto");
-    document
-      .getElementById(`grupo__${campo}`)
-      .classList.add("formulario__grupo-correcto");
-    */
-    //agrega verdadero cuando es valido campo
     campos[campo] = true;
     console.log(`${campo} correcto`);
+    //quitar lo incorrecto
+    document
+      .getElementById(`label_${campo}`)
+      .classList.remove("label_invalido");
+    if (campo == "mensaje") {
+      document.getElementById("message").classList.remove("input_invalido");
+    } else {
+      document
+        .getElementById(`input_${campo}`)
+        .classList.remove("input_invalido");
+    }
+    //poner lo correcto
+    document.getElementById(`label_${campo}`).classList.add("label_valido");
+    if (campo == "mensaje") {
+      document.getElementById("message").classList.add("input_valido");
+    } else {
+      document.getElementById(`input_${campo}`).classList.add("input_valido");
+    }
   } else {
-    //de no ser correcto
-    //agrega clase de incorrecto, coloca borde rojo
-    //agrega clase de incorrecto, coloca mensaje color rojo
-    //elimina clase de correcto, quita borde verde
-    /*
-    document
-      .getElementById(`grupo__${campo}`)
-      .classList.add("formulario__grupo-incorrecto");
-    document
-      .getElementById(`grupo__${campo}`)
-      .classList.remove("formulario__grupo-correcto");
-    */
-    //agrega falso cuando es invalido campo
     campos[campo] = false;
     console.log(`${campo} incorrecto`);
+    //quitar lo correcto
+    document.getElementById(`label_${campo}`).classList.remove("label_valido");
+    if (campo == "mensaje") {
+      document.getElementById("message").classList.remove("input_valido");
+    } else {
+      document
+        .getElementById(`input_${campo}`)
+        .classList.remove("input_valido");
+    }
+    //poner lo incorrecto
+    document.getElementById(`label_${campo}`).classList.add("label_invalido");
+    if (campo == "mensaje") {
+      document.getElementById("message").classList.add("input_invalido");
+    } else {
+      document.getElementById(`input_${campo}`).classList.add("input_invalido");
+    }
   }
 };
 //monitorea formulario y valida campos
