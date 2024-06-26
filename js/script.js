@@ -66,10 +66,10 @@ const validarConsulta = () => {
   // Verificar si alguno está seleccionado
   if (radio1.checked || radio2.checked) {
     campos.consulta = true;
-    console.log(`Campo consulta: ${campos.consulta}`);
+    console.log("consulta correcta");
   } else {
     campos.consulta = false;
-    console.log(`Campo consulta: ${campos.consulta}`);
+    console.log("consulta incorrecta");
   }
 };
 //funcion que valida input, en caso de verdadero modificara campo especifico en objeto llamado campos.
@@ -77,10 +77,10 @@ const validarTerminos = () => {
   const terminos = document.getElementById("check");
   if (terminos.checked) {
     campos.terminos = true;
-    console.log(`Campo terminos: ${campos.terminos}`);
+    console.log("terminos correcto");
   } else {
     campos.terminos = false;
-    console.log(`Campo terminos: ${campos.terminos}`);
+    console.log("terminos incorrecto");
   }
 };
 
@@ -149,4 +149,17 @@ formulario.addEventListener("submit", (e) => {
     //agregar mensaje de error, agregando clase display on
     //remover clase de error, setTimeout 000
   }
+});
+//modificar contador caracteres
+// Obtener el elemento del textarea y el div del contador
+var mensaje = document.getElementById("message");
+var contadorCaracteres = document.getElementById("contador-caracteres");
+
+// Añadir evento 'input' para detectar cambios en el textarea
+mensaje.addEventListener("input", function () {
+  // Obtener la longitud actual del texto dentro del textarea
+  var longitudTexto = mensaje.value.length;
+
+  // Actualizar el texto del contador
+  contadorCaracteres.textContent = longitudTexto + " / 1000 caracteres";
 });
