@@ -175,4 +175,9 @@ button:hover {
   form .check-terms label {
     font-size: 2rem;
   }
+}
+form #contador-caracteres {
+  color: #666;
+  font-size: 1.4rem;
+  margin-top: 5px;
 }/*# sourceMappingURL=main.css.map */

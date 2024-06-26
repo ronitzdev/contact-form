@@ -39,7 +39,7 @@
         <div class="form-block">
           <div class="block-item">
             <label for="email">Email Address <span>*</span></label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email" autocomplete="email" required>
           </div>
         </div>
         <div class="form-block">
@@ -57,6 +57,7 @@
         <div class="form-block form-block--message">
           <label for="message">Message <span>*</span></label>
           <textarea id="message" name="message" required></textarea>
+          <div id="contador-caracteres">0 / 1000 caracteres</div>
         </div>
         <div class="check-terms">
           <input type="checkbox" name="terms" id="check" required></input>
