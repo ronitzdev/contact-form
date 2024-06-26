@@ -78,6 +78,10 @@ body {
       border: 2px solid $green-600;
       outline: none;
     }
+    input:hover {
+      border: 2px solid $green-600;
+      cursor: pointer;
+    }
   }
   .block-item--pad-bottom {
     padding-bottom: 25px;
@@ -100,6 +104,9 @@ body {
         margin-right: 10px;
       }
     }
+    .option:hover {
+      border: 2px solid $green-600;
+    }
   }
 }
 //effect select
@@ -109,6 +116,7 @@ form {
     &:has([type="radio"]:checked) {
       border-color: $green-600;
       background-color: $green-200;
+      border-width: 2px;
     }
   }
 }
@@ -128,6 +136,9 @@ form {
   textarea:focus {
     border: 2px solid $green-600;
     outline: none;
+  }
+  textarea:hover {
+    border: 2px solid $green-600;
   }
 }
 //terms

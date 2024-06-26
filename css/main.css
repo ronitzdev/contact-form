@@ -68,6 +68,10 @@ body {
   border: 2px solid hsl(169, 82%, 27%);
   outline: none;
 }
+.form-block .block-item input:hover {
+  border: 2px solid hsl(169, 82%, 27%);
+  cursor: pointer;
+}
 .form-block .block-item--pad-bottom {
   padding-bottom: 25px;
 }
@@ -88,6 +92,9 @@ body {
 .form-block .block-items .option input {
   margin-right: 10px;
 }
+.form-block .block-items .option:hover {
+  border: 2px solid hsl(169, 82%, 27%);
+}
 
 form .option {
   padding: 10px 20px;
@@ -95,6 +102,7 @@ form .option {
 form .option:has([type=radio]:checked) {
   border-color: hsl(169, 82%, 27%);
   background-color: hsl(148, 38%, 91%);
+  border-width: 2px;
 }
 
 .form-block--message {
@@ -113,6 +121,9 @@ form .option:has([type=radio]:checked) {
 .form-block--message textarea:focus {
   border: 2px solid hsl(169, 82%, 27%);
   outline: none;
+}
+.form-block--message textarea:hover {
+  border: 2px solid hsl(169, 82%, 27%);
 }
 
 .check-terms {
