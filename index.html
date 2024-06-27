@@ -30,16 +30,19 @@
           <div class="block-item block-item--pad-bottom">
             <label for="first-name" id="label_nombre">First Name <span>*</span></label>
             <input type="text" id="input_nombre"  name="first-name" id="first-name" required>
+            <span id="error_nombre" class="error_message">This field is required</span>
           </div>
           <div class="block-item">
             <label for="last-name" id="label_apellido">Last Name <span>*</span></label>
             <input type="text" id="input_apellido" name="last-name" id="last-name" required>
+            <span id="error_apellido" class="error_message">This field is required</span>
           </div>
         </div>
         <div class="form-block">
           <div class="block-item">
             <label for="email" id="label_correo">Email Address <span>*</span></label>
             <input type="email" id="input_correo" name="email" id="email" autocomplete="email" required>
+            <span id="error_correo" class="error_message">This field is required</span>
           </div>
         </div>
         <div class="form-block">
@@ -52,17 +55,20 @@
                 <input type="radio" name="query-type" id="query-type2" value="support-request" required/>
                 Support Request
               </label>
-          </div>
+            </div>
+            <span id="error_consulta" class="error_message">Please select a query type</span>
         </div>
         <div class="form-block form-block--message">
           <label for="message" id="label_mensaje">Message <span>*</span></label>
           <textarea id="message" name="message" required></textarea>
           <div id="contador-caracteres">0 / 1000 caracteres</div>
+          <span id="error_mensaje" class="error_message">This field is required</span>
         </div>
         <div class="check-terms">
           <input type="checkbox" name="terms" id="check" required></input>
           <label for="check" id="label_terminos">I consent to being contacted by the team <span>*</span></label>
         </div>
+        <span id="error_terminos" class="error_message">To submit this form, please consent to being contacted</span>
         <button type="submit">Submit</button>
       </form>
     </main>
