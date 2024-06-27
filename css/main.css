@@ -262,4 +262,14 @@ form #contador-caracteres {
 
 .success_on {
   display: flex;
+}
+
+.error_message {
+  color: red;
+  font-size: 1.5rem;
+  display: none;
+}
+
+.error_message_activo {
+  display: inline;
 }/*# sourceMappingURL=main.css.map */
