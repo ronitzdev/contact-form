@@ -249,3 +249,39 @@ form #contador-caracteres {
 #formulario .input_invalido {
   border: 2px solid $red;
 }
+//MENSAJE EXITO
+//body
+.success-form {
+  padding-top: 100px;
+}
+//modal oculto
+.success_of {
+  width: 450px;
+  position: absolute;
+  background-color: $grey-900;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 7px;
+  margin: 0 auto;
+  top: 20px;
+  color: $white;
+  display: none;
+  .success-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    .title {
+      font-size: 1.4rem;
+      font-weight: $weight2;
+    }
+  }
+  .message {
+    font-size: 1.6rem;
+    color: $grey-500;
+  }
+}
+.success_on {
+  display: flex;
+}

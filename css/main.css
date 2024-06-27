@@ -226,4 +226,40 @@ form #contador-caracteres {
 
 #formulario .input_invalido {
   border: 2px solid hsl(0, 66%, 54%);
+}
+
+.success-form {
+  padding-top: 100px;
+}
+
+.success_of {
+  width: 450px;
+  position: absolute;
+  background-color: hsl(187, 24%, 22%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 7px;
+  margin: 0 auto;
+  top: 20px;
+  color: hsl(0, 0%, 100%);
+  display: none;
+}
+.success_of .success-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.success_of .success-title .title {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.success_of .message {
+  font-size: 1.6rem;
+  color: hsl(186, 15%, 59%);
+}
+
+.success_on {
+  display: flex;
 }/*# sourceMappingURL=main.css.map */

@@ -70,6 +70,9 @@ const validarTerminos = () => {
   if (terminos.checked) {
     campos.terminos = true;
     //quitar lo incorrecto
+    document
+      .getElementById("label_terminos")
+      .classList.remove("label_invalido");
     //poner lo correcto
     document.getElementById("label_terminos").classList.add("label_valido");
     console.log("terminos correcto");
@@ -148,9 +151,36 @@ formulario.addEventListener("submit", (e) => {
   ) {
     console.log("Formulario Valido"); //valido
     formulario.reset();
-    //agregar mensaje de exito, agregando clase display on
-    //remover clase de exito, setTimeout 5000
-    //remueve bordes color verde de inputs exito
+    //body
+    document.querySelector("body").classList.add("success-form");
+    //message
+    document.getElementById("success").classList.add("success_on");
+    // Llamar a la función cuando sea necesario
+    scrollToTop();
+    //ocultar mensaje de exito
+    setTimeout(() => {
+      document.getElementById("success").classList.remove("success_on");
+      document.querySelector("body").classList.remove("success-form");
+      //INICIO ELIMINAR ESTILOS SUCCESS
+      // Inputs
+      inputs.forEach((input) => {
+        input.classList.remove("input_valido", "input_invalido");
+      });
+      // Textarea
+      textarea.classList.remove("input_valido", "input_invalido");
+      // Labels
+      document
+        .querySelectorAll(".label_valido, .label_invalido")
+        .forEach((label) => {
+          label.classList.remove("label_valido", "label_invalido");
+        });
+      //FIN ELIMINAR ESTILOS SUCCESS
+    }, 5000);
+    //eliminar campos validos (internamente cambia valor valides campos false)
+    for (let key in campos) {
+      campos[key] = false;
+    }
+    //remueve estilos de exito de elementos
   } else {
     console.log("Formulario Invalido"); //invalido
     //agregar mensaje de error, agregando clase display on
@@ -170,3 +200,11 @@ mensaje.addEventListener("input", function () {
   // Actualizar el texto del contador
   contadorCaracteres.textContent = longitudTexto + " / 1000 caracteres";
 });
+
+// Scroll hacia el inicio de la página
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", // Esto hace que el desplazamiento sea suave
+  });
+}
