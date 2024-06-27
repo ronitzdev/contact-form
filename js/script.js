@@ -70,68 +70,92 @@ const validarTerminos = () => {
   if (terminos.checked) {
     campos.terminos = true;
     console.log("terminos correcto");
-    //quitar lo incorrecto
+    //quitar mensaje de error
     document
-      .getElementById("label_terminos")
-      .classList.remove("label_invalido");
+      .getElementById("error_terminos")
+      .classList.remove("error_message_activo");
     //poner lo correcto
     document.getElementById("label_terminos").classList.add("label_valido");
+    //quitar mensaje span rojo
+    document
+      .getElementById("error_terminos")
+      .classList.remove("error_message--activo");
   } else {
     campos.terminos = false;
     console.log("terminos incorrecto");
+    //poner mensaje de error
+    document
+      .getElementById("error_terminos")
+      .classList.add("error_message_activo");
     //quitar lo correcto
     document.getElementById("label_terminos").classList.remove("label_valido");
+    /*
     //poner lo incorrecto
     document.getElementById("label_terminos").classList.add("label_invalido");
+    */
+    //poner mensaje span rojo
+    document
+      .getElementById("error_terminos")
+      .classList.add("error_message--activo");
   }
 };
 
 //funcion que  valida campo interactuado
+
 const validarCampo = (expresion, input, campo) => {
   if (expresion.test(input.value)) {
     campos[campo] = true;
     console.log(`${campo} correcto`);
-    //quitar lo incorrecto
-    document
-      .getElementById(`label_${campo}`)
-      .classList.remove("label_invalido");
-    if (campo == "mensaje") {
+
+    // Verificación específica para campo "mensaje"
+    if (campo === "mensaje") {
       document.getElementById("message").classList.remove("input_invalido");
+      document
+        .getElementById(`error_${campo}`)
+        .classList.remove("error_message_activo");
+      document.getElementById("message").classList.add("input_valido");
     } else {
+      // Para campos que no son "mensaje"
       document
         .getElementById(`input_${campo}`)
         .classList.remove("input_invalido");
-    }
-    //poner lo correcto
-    document.getElementById(`label_${campo}`).classList.add("label_valido");
-    if (campo == "mensaje") {
-      document.getElementById("message").classList.add("input_valido");
-    } else {
+      document
+        .getElementById(`error_${campo}`)
+        .classList.remove("error_message_activo");
       document.getElementById(`input_${campo}`).classList.add("input_valido");
     }
+
+    // Común a todos los campos
+    document
+      .getElementById(`label_${campo}`)
+      .classList.remove("label_invalido");
+    document.getElementById(`label_${campo}`).classList.add("label_valido");
   } else {
     campos[campo] = false;
     console.log(`${campo} incorrecto`);
-    //quitar lo correcto
+
+    // Para todos los campos
+    document
+      .getElementById(`error_${campo}`)
+      .classList.add("error_message_activo");
     document.getElementById(`label_${campo}`).classList.remove("label_valido");
-    if (campo == "mensaje") {
+    document.getElementById(`label_${campo}`).classList.add("label_invalido");
+
+    // Verificación específica para campo "mensaje"
+    if (campo === "mensaje") {
       document.getElementById("message").classList.remove("input_valido");
+      document.getElementById("message").classList.add("input_invalido");
     } else {
+      // Para campos que no son "mensaje"
       document
         .getElementById(`input_${campo}`)
         .classList.remove("input_valido");
-    }
-    //poner lo incorrecto
-    document.getElementById(`label_${campo}`).classList.add("label_invalido");
-    if (campo == "mensaje") {
-      document.getElementById("message").classList.add("input_invalido");
-    } else {
       document.getElementById(`input_${campo}`).classList.add("input_invalido");
     }
   }
 };
-//monitorea formulario y valida campos
-//validacion con funcion validarFormulario();
+
+//monitorea formulario y valida campos, validacion con funcion validarFormulario();
 inputs.forEach((input) => {
   input.addEventListener("keyup", validarFormulario);
   input.addEventListener("blur", validarFormulario);
