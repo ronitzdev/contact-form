@@ -69,13 +69,13 @@ const validarTerminos = () => {
   const terminos = document.getElementById("check");
   if (terminos.checked) {
     campos.terminos = true;
+    console.log("terminos correcto");
     //quitar lo incorrecto
     document
       .getElementById("label_terminos")
       .classList.remove("label_invalido");
     //poner lo correcto
     document.getElementById("label_terminos").classList.add("label_valido");
-    console.log("terminos correcto");
   } else {
     campos.terminos = false;
     console.log("terminos incorrecto");
