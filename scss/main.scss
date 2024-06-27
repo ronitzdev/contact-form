@@ -296,3 +296,14 @@ form #contador-caracteres {
 .error_message_activo {
   display: inline;
 }
+
+@media screen and (max-width: 483px) {
+  //body
+  .success-form {
+    padding-top: 130px;
+  }
+  //mensaje
+  .success_of {
+    width: 330px;
+  }
+}

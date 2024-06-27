@@ -272,4 +272,13 @@ form #contador-caracteres {
 
 .error_message_activo {
   display: inline;
+}
+
+@media screen and (max-width: 483px) {
+  .success-form {
+    padding-top: 130px;
+  }
+  .success_of {
+    width: 330px;
+  }
 }/*# sourceMappingURL=main.css.map */
