@@ -1,19 +1,17 @@
-//variables
+// Variables
 const formulario = document.getElementById("formulario");
 const inputs = document.querySelectorAll("#formulario input");
 const textarea = document.getElementById("message");
-//console.log(formulario);
-//console.log(inputs);
-//console.log(textarea);
 
-//expressions
+// Expresiones regulares para validación
 const expresiones = {
   nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
   apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
   mensaje: /^.{1,1000}$/,
 };
-//campos
+
+// Campos y su estado de validación
 const campos = {
   nombre: false,
   apellido: false,
@@ -23,7 +21,7 @@ const campos = {
   terminos: false,
 };
 
-//funcion que valida formulario, ejecuta validacion de cada campo
+// Función que valida el formulario
 const validarFormulario = (e) => {
   switch (e.target.name) {
     case "first-name":
@@ -46,68 +44,56 @@ const validarFormulario = (e) => {
       break;
   }
 };
+
+// Función para validar el tipo de consulta seleccionada
 const validarConsulta = () => {
-  // Obtener todos los inputs tipo radio con name="opcion"
   var radios = document.querySelectorAll('input[name="query-type"]');
   var radio1 = radios[0];
   var radio2 = radios[1];
-  // Verificar si alguno está seleccionado
+
   if (radio1.checked || radio2.checked) {
     campos.consulta = true;
-    //quitar lo incorrecto
-    //poner lo correcto
     document.getElementById("label--pad-bottom").classList.add("label_valido");
     console.log("consulta correcta");
   } else {
     campos.consulta = false;
     console.log("consulta incorrecta");
-    //no se hace necesario quitar lo correcto, ya no se puede borrar seleccion
   }
 };
-//funcion que valida input, en caso de verdadero modificara campo especifico en objeto llamado campos.
+
+// Función para validar la aceptación de términos
 const validarTerminos = () => {
   const terminos = document.getElementById("check");
+
   if (terminos.checked) {
     campos.terminos = true;
     console.log("terminos correcto");
-    //quitar mensaje de error
     document
       .getElementById("error_terminos")
       .classList.remove("error_message_activo");
-    //poner lo correcto
     document.getElementById("label_terminos").classList.add("label_valido");
-    //quitar mensaje span rojo
     document
       .getElementById("error_terminos")
       .classList.remove("error_message--activo");
   } else {
     campos.terminos = false;
     console.log("terminos incorrecto");
-    //poner mensaje de error
     document
       .getElementById("error_terminos")
       .classList.add("error_message_activo");
-    //quitar lo correcto
     document.getElementById("label_terminos").classList.remove("label_valido");
-    /*
-    //poner lo incorrecto
-    document.getElementById("label_terminos").classList.add("label_invalido");
-    */
-    //poner mensaje span rojo
     document
       .getElementById("error_terminos")
       .classList.add("error_message--activo");
   }
 };
 
-//funcion que  valida campo interactuado
-
+// Función para validar campos individuales
 const validarCampo = (expresion, input, campo) => {
   if (expresion.test(input.value)) {
     campos[campo] = true;
     console.log(`${campo} correcto`);
 
-    // Verificación específica para campo "mensaje"
     if (campo === "mensaje") {
       document.getElementById("message").classList.remove("input_invalido");
       document
@@ -115,7 +101,6 @@ const validarCampo = (expresion, input, campo) => {
         .classList.remove("error_message_activo");
       document.getElementById("message").classList.add("input_valido");
     } else {
-      // Para campos que no son "mensaje"
       document
         .getElementById(`input_${campo}`)
         .classList.remove("input_invalido");
@@ -125,7 +110,6 @@ const validarCampo = (expresion, input, campo) => {
       document.getElementById(`input_${campo}`).classList.add("input_valido");
     }
 
-    // Común a todos los campos
     document
       .getElementById(`label_${campo}`)
       .classList.remove("label_invalido");
@@ -134,19 +118,16 @@ const validarCampo = (expresion, input, campo) => {
     campos[campo] = false;
     console.log(`${campo} incorrecto`);
 
-    // Para todos los campos
     document
       .getElementById(`error_${campo}`)
       .classList.add("error_message_activo");
     document.getElementById(`label_${campo}`).classList.remove("label_valido");
     document.getElementById(`label_${campo}`).classList.add("label_invalido");
 
-    // Verificación específica para campo "mensaje"
     if (campo === "mensaje") {
       document.getElementById("message").classList.remove("input_valido");
       document.getElementById("message").classList.add("input_invalido");
     } else {
-      // Para campos que no son "mensaje"
       document
         .getElementById(`input_${campo}`)
         .classList.remove("input_valido");
@@ -155,16 +136,18 @@ const validarCampo = (expresion, input, campo) => {
   }
 };
 
-//monitorea formulario y valida campos, validacion con funcion validarFormulario();
+// Event listeners para validar formulario
 inputs.forEach((input) => {
   input.addEventListener("keyup", validarFormulario);
   input.addEventListener("blur", validarFormulario);
-  textarea.addEventListener("blur", validarFormulario);
 });
-//submit button
+textarea.addEventListener("blur", validarFormulario);
+
+// Event listener para submit del formulario
 formulario.addEventListener("submit", (e) => {
   e.preventDefault();
   const terminos = document.getElementById("check");
+
   if (
     campos.nombre &&
     campos.apellido &&
@@ -173,62 +156,51 @@ formulario.addEventListener("submit", (e) => {
     campos.mensaje &&
     terminos.checked
   ) {
-    console.log("Formulario Valido"); //valido
+    console.log("Formulario Valido");
     formulario.reset();
-    //body
     document.querySelector("body").classList.add("success-form");
-    //message
     document.getElementById("success").classList.add("success_on");
-    // Llamar a la función cuando sea necesario
     scrollToTop();
-    //ocultar mensaje de exito
+
     setTimeout(() => {
       document.getElementById("success").classList.remove("success_on");
       document.querySelector("body").classList.remove("success-form");
-      //INICIO ELIMINAR ESTILOS SUCCESS
-      // Inputs
+
+      // Eliminar estilos de éxito
       inputs.forEach((input) => {
         input.classList.remove("input_valido", "input_invalido");
       });
-      // Textarea
       textarea.classList.remove("input_valido", "input_invalido");
-      // Labels
       document
         .querySelectorAll(".label_valido, .label_invalido")
         .forEach((label) => {
           label.classList.remove("label_valido", "label_invalido");
         });
-      //FIN ELIMINAR ESTILOS SUCCESS
     }, 5000);
-    //eliminar campos validos (internamente cambia valor valides campos false)
+
+    // Reiniciar estado de campos
     for (let key in campos) {
       campos[key] = false;
     }
-    //remueve estilos de exito de elementos
   } else {
-    console.log("Formulario Invalido"); //invalido
-    //agregar mensaje de error, agregando clase display on
-    //remover clase de error, setTimeout 000
+    console.log("Formulario Invalido");
+    // Agregar manejo de error aquí
   }
 });
-//modificar contador caracteres
-// Obtener el elemento del textarea y el div del contador
+
+// Contador de caracteres para el textarea
 var mensaje = document.getElementById("message");
 var contadorCaracteres = document.getElementById("contador-caracteres");
 
-// Añadir evento 'input' para detectar cambios en el textarea
 mensaje.addEventListener("input", function () {
-  // Obtener la longitud actual del texto dentro del textarea
   var longitudTexto = mensaje.value.length;
-
-  // Actualizar el texto del contador
   contadorCaracteres.textContent = longitudTexto + " / 1000 caracteres";
 });
 
-// Scroll hacia el inicio de la página
+// Función para hacer scroll hacia el inicio
 function scrollToTop() {
   window.scrollTo({
     top: 0,
-    behavior: "smooth", // Esto hace que el desplazamiento sea suave
+    behavior: "smooth",
   });
 }
